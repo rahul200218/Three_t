@@ -1,7 +1,6 @@
 # Three_T: Tic-Tac-Toe Game
 
-![Three_T Logo](https://raw.githubusercontent.com/your-username/your-repo/main/path/to/your-logo.png)
-
+![Three_T Gameplay Image](https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.freepik.com%2Fpremium-vector%2Ftic-tac-toe-game-linear-outline-icon-colour-neon-style-brick-wall-background-light-icon_30278465.htm&psig=AOvVaw3yEY4nVTRgExynWZYdSyxC&ust=1707501612085000&source=images&cd=vfe&opi=89978449&ved=0CBMQjRxqFwoTCKDMuKqpnIQDFQAAAAAdAAAAABAE)
 
 ## Overview
 
