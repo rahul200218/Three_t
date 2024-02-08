@@ -1,6 +1,6 @@
 # Three_T: Tic-Tac-Toe Game
 
-<img src="https://www.freepik.com/premium-vector/tic-tac-toe-game-linear-outline-icon-colour-neon-style-brick-wall-background-light-icon_30278465.htm" alt="Three_T Gameplay Image" width="100%">
+![Three_T Gameplay Image](https://img.freepik.com/premium-vector/tic-tac-toe-game-linear-outline-icon-colour-neon-style-brick-wall-background-light-icon_549897-1770.jpg?w=740)
 
 ## Overview
 
