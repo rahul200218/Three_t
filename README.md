@@ -1,6 +1,7 @@
 # Three_T: Tic-Tac-Toe Game
 
-![Three_T Logo]([https://your-logo-url.com](https://in.pinterest.com/pin/1107674470838433027/))
+![Three_T Logo](https://raw.githubusercontent.com/your-username/your-repo/main/path/to/your-logo.png)
+
 
 ## Overview
 
