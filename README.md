@@ -1,6 +1,6 @@
 # Three_T: Tic-Tac-Toe Game
 
-![Three_T Gameplay Image]([https://img.freepik.com/premium-vector/tic-tac-toe-game-linear-outline-icon-colour-neon-style-brick-wall-background-light-icon_549897-1770.jpg?w=740](https://uploads.codehs.com/859400cd211700dcde03a3f3cee74575))
+![Three_T Gameplay Image](https://uploads.codehs.com/859400cd211700dcde03a3f3cee74575)
 
 ## Overview
 
