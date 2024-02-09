@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="preload" href="./assets/x1.png" as="image">
+    <link rel="preload" href="./assets/o1.png" as="image">
+    <link rel="preload" href="./assets/fre.png" as="image">
+    <link rel="preload" href="./assets/ai-background-business-technology-digital-transformation.jpg" as="image">
+    <link rel="preload" href="./assets/18637.jpg" as="image">
+    <link rel="preload" href="./assets/frame.png" as="image">
+    <link rel="preload" href="./assets/heads.svg" as="image">
+    <link rel="preload" href="./assets/tails.svg" as="image">
+    <style>
+         
+
+    </style>
+</head>
+
+
+<body>
+    <header class="header" id="header">
+        <nav class="nav grid">
+            <h2 class="nav_header">THREE <span>T</span></h2>
+            <h5 class="nav_second_header first"><a href="" class="nav_second_header_links">HOME</a></h5>
+            <h5 class="nav_second_header"><a href="#services" class="nav_second_header_links">GAMES</a></h5>
+            <h5 class="nav_second_header"><a href="#moreinfo" class="nav_second_header_links">INFO</a></h5>
+            <h5 class="nav_second_header"><a href="#contact" class="nav_second_header_links">CONTACT</a></h5>
+            <h5 class="nav_second_header gift"><a class="nav_second_header_links" id="gift_container">GIFT</a></h5>
+
+            <div class="menu-btn display" id="burger">
+                <div class="btn-line " id="firstbar"></div>
+                <div class="btn-line" id="secondbar"></div>
+                <div class="btn-line" id="thirdbar"></div>
+            </div>
+
+        </nav>
+        <div class="mobile-nav " id="mobile_nav">
+            <ol class="mobile_nav_ol flex">
+                <li class="mobile_nav_li">
+                    <h5><a href="">HOME</a></h5>
+                </li>
+                <li class="mobile_nav_li">
+                    <h5><a href="#services">GAMES</a></h5>
+                </li>
+                <li class="mobile_nav_li">
+                    <h5><a href="#moreinfo">INFO</a></h5>
+                </li>
+                <li class="mobile_nav_li">
+                    <h5><a href="#contact">CONTACT</a></h5>
+                </li>
+                <li class="mobile_nav_li ">
+                    <h5><a class="gift" id="gift_container2">GIFT</a></h5>
+                </li>
+            </ol>
+
+        </div>
+
+       
+
+
+    </header>
+
+
+    <div id="welcomeDiv">
+        <div id="welcomeMessage">Please tell us your name so that we can remember you next time:</div>
+        <input type="text" id="nameInput" placeholder="Your Name">
+        <button id="submitButton" onclick="submitName()">Submit</button>
+      </div>
+      
+    <div id="overlay">
+        <div id="image-container">
+            <img src="./assets/frame.png" alt="Your Image">
+            <div id="close_button_gift" style="color: black; background-color:red;padding: 10px;">X</div>
+        </div>
+    </div>
+
+
+    <main class="main">
+        <section class="home_section grid">
+            <div class="container">
+                <h1 class="home_section_heading">Welcome to Three <span>T</span></h1>
+                <h4 class="home_section_second_heading">You can enjoy by playing with ai and your friends</h4>
+                <p>Nothing much just a simple web game using html,css and js ....Happy coding</p>
+                <button class="readmore"><a href="./index.html#moreinfo">Read More</a></button>
+                <button class="play"><a href="./index.html#services">Play Game</a></button>
+            </div>
+
+            <div class="typo_container">
+                <table id="ticTacToeTable">
+                    <tr>
+                        <td class="t_first" id="firstmove"></td>
+                        <td class="t_first"></td>
+                        <td class="t_bottom"></td>
+                    </tr>
+                    <tr>
+                        <td class="t_first"></td>
+                        <td class="t_first"></td>
+                        <td class="t_bottom"></td>
+                    </tr>
+                    <tr>
+                        <td class="t_left"></td>
+                        <td class="t_left"></td>
+                        <td class=""></td>
+                    </tr>
+                </table>
+
+            </div>
+
+
+          
+        </section>
+
+        <section class="services grid" >
+            
+            <div class="services_heading_container">
+                <h3>Services</h3>
+            </div>
+            <div id="services"></div>
+            <div class="services_container">
+                <div class="services_first_container">
+                    <div class="first_image_container">
+                        <img src="./assets/fre.png" alt="">
+                    </div>
+                    <h3>Play with Friends <a href="/playwithfriends.html" style="text-align: center;"><div>Click Here</div></a></h3>
+                </div>
+
+                <div class="services_second_container">
+                    <div class="second_image_container">
+                        <img src="./assets/toppng.com-robot-918x990.png" alt="">
+                    </div>
+                    <h3>Play With A.I <a href="./playwithai.html" style="text-align: center;"><div>Click Here</div></a></h3>
+                </div>
+
+                <div class="services_third_container">
+                    <div class="third_image_container">
+                        <img src="./assets/toppng.com-rdf-linked-open-data-logo-1091x1191.png" alt="">
+                    </div>
+                    <h3>Share Link And Play</h3>
+                </div>
+            </div>
+
+        </section>
+
+
+
+        <section class="more_info grid">
+            <div class="more_info_heading">
+                <h3>More Info</h3>
+            </div>
+            <div id="moreinfo"></div>
+            <div class="more_info_container">
+                <div class="more_info_blocks">
+                    <div class="more_info_image_container">
+                        <img src="./assets/18637.jpg" alt="">
+                    </div>
+                    <div class="more_info_writings">
+                        <h4>Player V/s Player</h4>
+                        <p>Just used a normal array and built a player v/s player mode with cool user interface. You can play with your friends whenever you want.You can find the code on my github repository</p>
+                    </div>
+                </div>
+                <div class="more_info_blocks">
+                    <div class="more_info_image_container">
+                        <img src="./assets/ai-background-business-technology-digital-transformation.jpg" alt="">
+                    </div>
+                    <div class="more_info_writings">
+                        <h4>Player V/s A.I</h4>
+                        <p>Made a powerful undefeatable A.I with the help of minimax algorithm. I bet you can never win against this A.I. If you win i will quit coding for real.Check my github account </p>
+                    </div>
+                </div>
+                <div class="more_info_blocks">
+                    <div class="more_info_image_container">
+                        <img src="./assets/66074.jpg" alt="">
+                    </div>
+                    <div class="more_info_writings">
+                        <h4>Share and Play</h4>
+                        <p>This mode under maintainance or consider it as a future update. Here you can share the link to the player with whom you want to play and enjoy online with real-time results</p>
+                    </div>
+                </div>
+                <div class="more_info_blocks">
+                    <div class="more_info_image_container">
+                        <img src="./assets/na_may_13.jpg" alt="">
+                    </div>
+                    <div class="more_info_writings">
+                        <h4>My future Plans</h4>
+                        <p>Presently i am working on React-js and react-fiber. note my github repository because i am going to publish my portfolio website using react-fibre</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <section class="github_section grid">
+            <h3>Github</h3>
+            <div class="github_container">
+                <img src="./assets/Github Logo free icons designed by Dave Gandy.jpg" alt="">
+                <h5><a href="https://github.com/rahul200218">🌟 My Github</a></h5>
+            </div>
+        </section>
+
+    </main>
+
+
+    <div id="contact"></div>
+    <footer class="grid">
+        <div class="footer_container">
+            <div class="footer_blocks">
+                <ul>
+                    <li>Rahul</li>
+                    <li>B.C road</li>
+                    <li>Kundapura</li>
+                    <li>Karnataka</li>
+                </ul>
+            </div>
+
+            <div class="footer_blocks">
+                <ul>
+                    <li>Github</li>
+                    <li>React js</li>
+                    <li>Javascript</li>
+                    <li>Web development</li>
+                </ul>
+            </div>
+
+            <div class="footer_blocks">
+                <ul>
+                    <li>Eat</li>
+                    <li>Sleep</li>
+                    <li>Code</li>
+                    <li>Repeat</li>
+                </ul>
+            </div>
+        </div>
+        <h5>&copy; Copyrights | <a href="https://github.com/rahul200218">@Rahul</a></h5>
+    </footer>
+
+
+
+<script src="./main.js"></script>
+<script>
+
+    let gift_container=document.getElementById("gift_container").addEventListener("click",function openOverlay() {
+        document.getElementById("overlay").style.display = "flex";
+    })
+    
+    let close_button=document.getElementById("close_button_gift").addEventListener("click",function closeOverlay() {
+        document.getElementById("overlay").style.display = "none";
+    })
+    
+    let gift_container2=document.getElementById("gift_container2").addEventListener("click",function openOverlay() {
+        document.getElementById("overlay").style.display = "flex";
+    })
+</script>
+
+<script>
+   function getCookie(name) {
+    var cookies = document.cookie.split(';');
+    for (var i = 0; i < cookies.length; i++) {
+      var cookie = cookies[i].trim();
+      if (cookie.startsWith(name + '=')) {
+        return cookie.substring(name.length + 1);
+      }
+    }
+    return '';
+  }
+
+  function showWelcomeMessage() {
+    var username = getCookie('username');
+    var lastVisitTime = getCookie('lastVisitTime');
+    var currentDate = new Date();
+
+    if (username !== '' && lastVisitTime !== '' && currentDate.getTime() - parseInt(lastVisitTime) < 2 * 24 * 60 * 60 * 1000) {
+      alert(`Welcome, ${username}! Last visited at ${new Date(parseInt(lastVisitTime)).toLocaleTimeString()}.`);
+    } else {
+      
+      document.getElementById('welcomeDiv').classList.add('show');
+    }
+  }
+
+  function submitName() {
+    var name = document.getElementById('nameInput').value;
+    var currentDate = new Date();
+    var expirationDate = new Date(currentDate.getTime() + 365 * 24 * 60 * 60 * 1000);
+
+    document.cookie = `username=${name}; expires=${expirationDate.toUTCString()}`;
+    document.cookie = `lastVisitTime=${currentDate.getTime()}`;
+
+   
+    document.getElementById('welcomeDiv').classList.remove('show');
+
+    setTimeout(function() {
+    showWelcomeMessage();
+  }, 2000);
+    
+  }
+
+
+  var usernameCookie = getCookie('username');
+  if (usernameCookie !== '') {
+    showWelcomeMessage();
+  } else {
+ 
+    document.getElementById('welcomeDiv').classList.add('show');
+  }
+
+
+</script>
+
+</body>
+
+</html>

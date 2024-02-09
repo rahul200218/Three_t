@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vs Friends</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+</head>
+<style>
+
+
+:root {
+    --bg-color: rgb(39, 37, 37);
+    --font-color: rgb(255, 255, 255);
+    --blur-font-color:rgba(255, 255, 255,0.5);
+    --highlight-font-color: rgb(11, 105, 247);
+}
+
+body{
+    background-color: var(--bg-color);
+    
+}
+
+.container{
+    background: #fff;
+    width: 100%;
+    padding: 50px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    box-shadow: 15px 30px 35px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    -webkit-perspective: 300px;
+    perspective: 300px;
+}
+
+.stats{
+    text-align: right;
+    color: #101020;
+    font-weight: 500;
+    line-height: 25px;
+}
+
+.coin{
+    height: 150px;
+    width: 150px;
+    position: relative;
+    margin: 50px auto;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+
+.tails{
+    transform: rotateX(180deg);
+}
+
+.buttons{
+    display: grid;
+    justify-items: center;
+}
+
+.coin img{
+    width: 145px;
+}
+
+.heads, .tails{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+button{
+    width: 120px;
+    padding: 10px 0;
+    border: 2.5px solid #424ae0;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: transparent;
+
+}
+
+#flip-button{
+    background: #424ae0;
+    color: #fff;
+}
+
+#flip-button:disabled{
+    background-color: #e1e0ee;
+    color: #101020;
+    border-color: #e1e0ee;
+}
+
+
+
+@keyframes spin-tails{
+    0%{
+        transform: rotateX(0);
+    }
+    100%{
+        transform: rotateX(1980deg);
+    }
+}
+
+@keyframes spin-heads{
+    0%{
+        transform: rotateX(0);
+    }
+    100%{
+        transform: rotateX(2160deg);
+    }
+}
+
+.first_message{
+    position: absolute;
+    z-index: 1000;
+    height: 100%;
+    width: 100%;
+    background-color: rgb(39, 37, 37);
+    text-align: center;
+}
+
+.first_message p{
+    color: white;
+    margin-top: 20%;
+    padding-bottom: 5%;
+}
+
+.button_ok{
+    margin-top: 20%;
+    color: white;
+    border: solid 2px rgb(11, 105, 247);
+    padding: 10px;
+    border-radius: 12px;
+    display: inline;
+
+}
+
+.button_ok:hover{
+    background-color: #424ae0;
+}
+
+.second_message{
+    position: absolute;
+    z-index: 1000;
+    height: 100%;
+    width: 100%;
+    background-color: rgb(39, 37, 37);
+    text-align: center;
+    display: none;
+    left: 0%;
+    transition: all 2s ease-in;
+    z-index: 2000;
+}
+
+
+.second_message p{
+    color: white;
+    margin-top: 20%;
+    padding-bottom: 5%;
+}
+
+.curtain{
+    visibility: hidden;
+}
+
+.game_container{
+    display: grid;
+    grid-template-columns: repeat(12,1fr);
+    
+}
+
+.gamecontainer{
+      display: grid;
+      position: relative;
+      margin-top: 50%;
+      grid-template-columns: repeat(3,1fr);
+      background-color: white;
+      grid-column: 2 / 12;
+  
+ }
+  .gamecontainer div{
+  padding: 3rem;
+ }
+
+
+.winner_message{
+    position: absolute;
+    z-index: 10000;
+    height: 100%;
+    width: 100%;
+    background-color: rgb(39, 37, 37);
+    text-align: center;
+    display: none;
+}
+
+ #blur-container {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(0, 0, 255, 0.8);
+      padding: 20px;
+      text-align: center;
+      color: #fff;
+      font-family: 'Arial', sans-serif;
+      border-radius: 10px;
+      backdrop-filter: blur(10000px);
+      z-index: 5000;
+    }
+
+    #replay-btn, #home-btn {
+      background-color: #fff;
+      color: #000;
+      padding: 10px 20px;
+      margin-top: 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+ @media screen and (min-width:1200px){
+    .gamecontainer{
+       
+        margin-top: 10%;
+    }
+
+    .gamecontainer div{
+        padding: 4rem;
+ }
+
+ .container{
+    background: #fff;
+    width: 400px;
+    padding: 50px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    box-shadow: 15px 30px 35px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    -webkit-perspective: 300px;
+    perspective: 300px;
+ }
+ }
+
+ td {
+  border:  2px solid #333;
+  height:  100px;
+  width:  100px;
+  text-align:  center;
+  vertical-align:  middle;
+  font-family:  "Comic Sans MS", sans-serif;
+  font-size:  70px;
+  cursor: pointer;
+}
+
+table{
+    border-collapse: collapse;
+}
+
+.ai_container{
+    display: grid;
+    grid-template-columns: repeat(12,1fr);
+    grid-template-rows: repeat(2,0.5fr);
+
+}
+
+.ai_container table{
+    grid-column: 2 / 12;
+    grid-row: 1;
+    color: black;
+    background-color: white;
+    margin-top: 10%;
+}
+
+.ai_container button{
+    grid-row: 2;
+    grid-column: 2 / 12;
+    align-self: center;
+    justify-self: center;
+    color: white;
+}
+
+table tr:first-child td {
+  border-top: 0;
+}
+
+table tr:last-child td {
+  border-bottom: 0;
+}
+
+table tr td:first-child {
+  border-left: 0;
+}
+table tr td:last-child {
+  border-right: 0;
+}
+
+.endgame {
+    display: none;
+    box-shadow: var(--highlight-font-color) 0px 5px 15px;
+    position: absolute;
+    padding-top: 10px;
+    padding-bottom: 50px;
+    text-align: center;
+    border-radius: 5px;
+    background-color: var(--bg-color);
+    color: var(--highlight-font-color);
+    font-size: 2em;
+    align-self: center;
+    width: 100%;
+    justify-self: center;
+    grid-column: 2 / 12;
+    top: 20%; 
+}
+
+.selectSym {
+    display: none;
+    box-shadow: var(--highlight-font-color) 0px 5px 15px;
+    position: absolute;
+    padding-top: 10px;
+    padding-bottom: 50px;
+    text-align: center;
+    border-radius: 5px;
+    background-color: var(--bg-color);
+    color: var(--highlight-font-color);
+    font-size: 2em;
+    align-self: center;
+    width: 100%;
+    justify-self: center;
+    grid-column: 2 / 12;
+    top: 20%;
+}
+
+
+.selectSym button{
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  font-size:  50px;
+  width: 70px;
+}
+
+.selectSym  button:first-of-type {
+  margin-right: 10px;
+}
+.selectSym  button:last-of-type {
+  margin-left: 10px;
+}
+
+
+
+
+
+</style>
+<body>
+    
+    
+
+
+
+  
+        <header class="header" id="header">
+            <nav class="nav grid">
+                <h2 class="nav_header">THREE <span>T</span></h2>
+                <h5 class="nav_second_header first"><a href="index.html" class="nav_second_header_links">HOME</a></h5>
+                <h5 class="nav_second_header"><a href="./index.html#services" class="nav_second_header_links">GAMES</a></h5>
+                <h5 class="nav_second_header"><a href="./index.html#moreinfo" class="nav_second_header_links">INFO</a></h5>
+                <h5 class="nav_second_header"><a href="./index.html#contact" class="nav_second_header_links">CONTACT</a></h5>
+                <h5 class="nav_second_header gift"><a class="nav_second_header_links" id="gift_container">GIFT</a></h5>
+    
+                <div class="menu-btn display" id="burger">
+                    <div class="btn-line " id="firstbar"></div>
+                    <div class="btn-line" id="secondbar"></div>
+                    <div class="btn-line" id="thirdbar"></div>
+                </div>
+    
+            </nav>
+            <div class="mobile-nav " id="mobile_nav">
+                <ol class="mobile_nav_ol flex">
+                    <li class="mobile_nav_li">
+                        <h5><a href="index.html">HOME</a></h5>
+                    </li>
+                    <li class="mobile_nav_li">
+                        <h5><a href="./index.html#services">GAMES</a></h5>
+                    </li>
+                    <li class="mobile_nav_li">
+                        <h5><a href="./index.html#moreinfo">INFO</a></h5>
+                    </li>
+                    <li class="mobile_nav_li">
+                        <h5><a href="./index.html#contact">CONTACT</a></h5>
+                    </li>
+                    <li class="mobile_nav_li ">
+                        <h5><a  class="gift" id="gift_container2">GIFT</a></h5>
+                    </li>
+                </ol>
+    
+            </div>
+        </header>
+
+        <div id="overlay">
+          <div id="image-container">
+              <img src="./assets/frame.png" alt="Your Image">
+              <div id="close_button_gift" style="color: black; background-color:red;padding: 10px;">X</div>
+          </div>
+      </div>
+        <main>
+            <section class="ai_container">
+                <table>
+                    <tr>
+                        <td class="cell" id="0"></td>
+                        <td class="cell" id="1"></td>
+                        <td class="cell" id="2"></td>
+                    </tr>
+                    <tr>
+                        <td class="cell" id="3"></td>
+                        <td class="cell" id="4"></td>
+                        <td class="cell" id="5"></td>
+                    </tr>
+                    <tr>
+                        <td class="cell" id="6"></td>
+                        <td class="cell" id="7"></td>
+                        <td class="cell" id="8"></td>
+                    </tr>
+                </table>
+                <div class="endgame">
+                    <div class="text"></div>
+                </div>
+                <div class = "selectSym">
+                <p>Select symbol:</p>
+                  <button onClick="selectSym('X')">X</button>
+                  <button onClick="selectSym('O')">O</button>
+                </div>
+                <button onClick="startGame()">Replay</button>
+            
+            </section>
+        </main>
+
+        <footer class="grid">
+            <div class="footer_container">
+                <div class="footer_blocks">
+                    <ul>
+                        <li>Rahul</li>
+                        <li>B.C road</li>
+                        <li>Kundapura</li>
+                        <li>Karnataka</li>
+                    </ul>
+                </div>
+    
+                <div class="footer_blocks">
+                    <ul>
+                        <li>Github</li>
+                        <li>React js</li>
+                        <li>Javascript</li>
+                        <li>Web development</li>
+                    </ul>
+                </div>
+    
+                <div class="footer_blocks">
+                    <ul>
+                        <li>Eat</li>
+                        <li>Sleep</li>
+                        <li>Code</li>
+                        <li>Repeat</li>
+                    </ul>
+                </div>
+            </div>
+            <h5>&copy; Copyrights | <a href="https://github.com/rahul200218">@Rahul</a></h5>
+        </footer>
+ 
+
+        <script>
+          let burger = document.getElementById('burger');
+      let mobile_nav = document.getElementById('mobile_nav');
+      
+      let inc=0;
+      let firstmove=document.getElementById("firstmove")
+      let flag=0;
+      
+      burger.addEventListener("click",()=>{
+          if (flag==0){
+              flag=1
+              console.log("hello")
+              burger.classList.add("open")
+              mobile_nav.style.left="0%"
+          }
+          else if(flag==1){
+              flag=0
+              burger.classList.remove("open")
+              mobile_nav.style.left="-100%"
+          }
+        })
+      
+      </script>
+
+        <script>
+    
+            let origBoard;
+            let huPlayer ='O';
+            let aiPlayer = 'X';
+            const winCombos =[
+              [0, 1, 2],
+              [3, 4, 5],
+              [6, 7, 8],
+              [0, 4, 8],
+              [6, 4, 2],
+              [2, 5, 8],
+              [1, 4, 7],
+              [0, 3, 6]
+            ];
+            
+            const cells = document.querySelectorAll('.cell');
+            startGame();
+            
+            function selectSym(sym){
+              huPlayer = sym;
+              aiPlayer = sym==='O' ? 'X' :'O';
+              origBoard = Array.from(Array(9).keys());
+              for (let i = 0; i < cells.length; i++) {
+                cells[i].addEventListener('click', turnClick, false);
+              }
+              if (aiPlayer === 'X') {
+                turn(bestSpot(),aiPlayer);
+              }
+              document.querySelector('.selectSym').style.display = "none";
+            }
+            
+            function startGame() {
+              document.querySelector('.endgame').style.display = "none";
+              document.querySelector('.endgame .text').innerText ="";
+              document.querySelector('.selectSym').style.display = "block";
+              for (let i = 0; i < cells.length; i++) {
+                cells[i].innerText = '';
+                cells[i].style.removeProperty('background-color');
+              }
+            }
+            
+            function turnClick(square) {
+              if (typeof origBoard[square.target.id] ==='number') {
+                turn(square.target.id, huPlayer);
+                if (!checkWin(origBoard, huPlayer) && !checkTie())  
+                  turn(bestSpot(), aiPlayer);
+              }
+            }
+            
+            function turn(squareId, player) {
+              origBoard[squareId] = player;
+              document.getElementById(squareId).innerHTML = player;
+              let gameWon = checkWin(origBoard, player);
+              if (gameWon) gameOver(gameWon);
+              checkTie();
+            }
+            
+            function checkWin(board, player) {
+              let plays = board.reduce((a, e, i) => (e === player) ? a.concat(i) : a, []);
+              let gameWon = null;
+              for (let [index, win] of winCombos.entries()) {
+                if (win.every(elem => plays.indexOf(elem) > -1)) {
+                  gameWon = {index: index, player: player};
+                  break;
+                }
+              }
+              return gameWon;
+            }
+            
+            function gameOver(gameWon){
+              for (let index of winCombos[gameWon.index]) {
+                document.getElementById(index).style.backgroundColor = 
+                  gameWon.player === huPlayer ? "blue" : "red";
+              }
+              for (let i=0; i < cells.length; i++) {
+                cells[i].removeEventListener('click', turnClick, false);
+              }
+              declareWinner(gameWon.player === huPlayer ? "You win! 🏆" : "You lose! 🤢");
+            }
+            
+            function declareWinner(who) {
+              document.querySelector(".endgame").style.display = "block";
+              document.querySelector(".endgame .text").innerText = who;
+            }
+            function emptySquares() {
+              return origBoard.filter((elm, i) => i===elm);
+            }
+              
+            function bestSpot(){
+              return minimax(origBoard, aiPlayer).index;
+            }
+              
+            function checkTie() {
+              if (emptySquares().length === 0){
+                for (cell of cells) {
+                  cell.style.backgroundColor = "green";
+                  cell.removeEventListener('click',turnClick, false);
+                }
+                declareWinner("Tie game! 😅");
+                return true;
+              } 
+              return false;
+            }
+            
+            function minimax(newBoard, player) {
+              var availSpots = emptySquares(newBoard);
+              
+              if (checkWin(newBoard, huPlayer)) {
+                return {score: -10};
+              } else if (checkWin(newBoard, aiPlayer)) {
+                return {score: 10};
+              } else if (availSpots.length === 0) {
+                return {score: 0};
+              }
+              
+              var moves = [];
+              for (let i = 0; i < availSpots.length; i ++) {
+                var move = {};
+                move.index = newBoard[availSpots[i]];
+                newBoard[availSpots[i]] = player;
+                
+                if (player === aiPlayer)
+                  move.score = minimax(newBoard, huPlayer).score;
+                else
+                   move.score =  minimax(newBoard, aiPlayer).score;
+                newBoard[availSpots[i]] = move.index;
+                if ((player === aiPlayer && move.score === 10) || (player === huPlayer && move.score === -10))
+                  return move;
+                else 
+                  moves.push(move);
+              }
+              
+              let bestMove, bestScore;
+              if (player === aiPlayer) {
+                bestScore = -1000;
+                for(let i = 0; i < moves.length; i++) {
+                  if (moves[i].score > bestScore) {
+                    bestScore = moves[i].score;
+                    bestMove = i;
+                  }
+                }
+              } else {
+                  bestScore = 1000;
+                  for(let i = 0; i < moves.length; i++) {
+                  if (moves[i].score < bestScore) {
+                    bestScore = moves[i].score;
+                    bestMove = i;
+                  }
+                }
+              }
+              
+              return moves[bestMove];
+            }
+            
+              </script>
+
+<script>
+
+  let gift_container=document.getElementById("gift_container").addEventListener("click",function openOverlay() {
+      document.getElementById("overlay").style.display = "flex";
+  })
+  
+  let close_button=document.getElementById("close_button_gift").addEventListener("click",function closeOverlay() {
+      document.getElementById("overlay").style.display = "none";
+  })
+  
+  let gift_container2=document.getElementById("gift_container2").addEventListener("click",function openOverlay() {
+      document.getElementById("overlay").style.display = "flex";
+  })
+
+
+
+  
+  function handleScrollStart() {
+    const header = document.getElementById('header');
+    header.classList.add('with-box-shadow');
+  }
+
+  function handleScrollStop() {
+    const header = document.getElementById('header');
+    setTimeout(() => {
+      header.classList.remove('with-box-shadow');
+    }, 200);
+  }
+
+  let scrollStoppedTimer;
+
+
+  window.addEventListener('scroll', function() {
+    handleScrollStart();
+    clearTimeout(scrollStoppedTimer);
+    scrollStoppedTimer = setTimeout(function() {
+      handleScrollStop();
+    }, 200);
+  });
+</script>
+     
+</body>
+</html>
